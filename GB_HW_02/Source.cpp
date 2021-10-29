@@ -101,6 +101,40 @@ private:
 	size_t mSize;
 };
 
+//3) Реализовать собственный класс итератора, с помощью которого можно будет проитерироваться по диапазону целых чисел в цикле for-range-based.
+
+template<typename T>
+class Container
+{
+public:
+	
+	Container<T>()
+	{
+		values = new T[10];
+	}
+
+	class CustomIterator
+	{
+	public:
+		
+		CustomIterator& operator++();
+		friend bool operator!= (const data& lhs, const data& rhs);
+	};
+
+	T* begin() { return nullptr; }
+	T* end() { return nullptr; }
+
+	~Container()
+	{
+		delete values;
+	}
+
+private:
+
+	T* values;
+	
+};
+
 
 int main()
 {
